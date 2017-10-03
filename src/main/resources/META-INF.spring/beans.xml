@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+    <bean id="xmlDeclaredBeanEx" class="com.nb.beans.XmlDeclaredBeanEx"></bean>
+
+    <bean id="loggerBean" class="com.nb.aspects.Logging">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+
+    <!--aop:config>
+        <aop:aspect ref="loggerBean">
+            <aop:pointcut id="log"
+                          expression="execution(* com.nb.controllers.SpitterController.spitters(..))"/>
+            <aop:before pointcut-ref="log"
+                        method="singBeforeQuest"/>
+            <aop:after pointcut-ref="log"
+                       method="singAfterQuest"/>
+        </aop:aspect>
+    </aop:config-->
+</beans>
